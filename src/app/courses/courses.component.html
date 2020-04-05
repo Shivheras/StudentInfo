@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Student Management</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home']" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+       
+     
+    </ul>
+    
+  </div>
+</nav>
+<button style="margin-top: 50px;margin-left: 10px;" [routerLink]="['/list']"class="btn btn-primary">MyCourse</button>
+<div style="margin-left: 20px;width: 300px;margin-top: 20px;">
+<select class="form-control" (change)="sel($event)"placeholder="Choose your Course">
+  <option>Choose Student Id</option>
+  
+  <option *ngFor="let results of result" class="dropdown show">
+    {{results.studentId}} {{results.name}}
+  </option>
+</select>
+</div>
+<div  style="margin-left: 500px;width: 300px;">
+  
+  <select class="form-control" (change)="send($event)"placeholder="Choose your Course">
+      <option>Choose your Course</option>
+      
+      <option *ngFor="let result of httpData" class="dropdown show">
+        {{result.courseListId}} {{result.courseName}}
+      </option>
+    </select>
+
+  </div>
+  <div style="margin-top: 30px;">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th> Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                
+            </tr>
+        </thead>
+    
+        <tr *ngFor="let i of httpData" class="table-light">
+            <td>{{i.courseListId}}</td>
+            <td> {{i.courseName}}</td>
+            <td>{{i.description}}</td>
+             <td> {{i.type}}</td>
+              <td>{{i.price}}</td>
+            <td><button (click)="check(i.courseListId)">Enroll</button></td>
+        </tr>
+    </table>
+  </div>
+

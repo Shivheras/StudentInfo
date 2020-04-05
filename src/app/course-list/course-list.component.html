@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Student Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/home']" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+         
+       
+      </ul>
+      
+    </div>
+  </nav>
+  <style>
+    .button {
+      width:33rem;
+    background-color: #5d2e90; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  </style>
+  <form [formGroup]="userFormGroup">
+     <div class="container">
+       <div class="h3">
+       <a style="color:black" class="text-center d-block mb-5 logo_text"> Add Course List Here </a></div>
+    
+    <div class="col-md-6 offset-md-3">
+    <div class="form-group">
+      <div class="form-row">
+          <div class="col">
+   <label for="exampleInputEmail1">Course Name</label>
+              <input type="text" class="form-control" formControlName="name" placeholder="Course Name">
+        <div  *ngIf="userFormGroup.controls.name.invalid " style="color:red">This field is required </div>
+      </div>
+     
+          
+               
+              </div>
+     
+      <label for="exampleInputdesc1">Description</label>
+      <input type="text" class="form-control" id="exampleInputdesc1" formControlName="description"aria-describedby="descHelp" placeholder="Enter description">
+     <div  *ngIf="userFormGroup.controls.nzme.invalid " style="color:red">This field is required </div>
+      <br>
+      <div class="form-group">
+     
+        <label for="exampleInputtype1">Type </label>
+        <select  formControlName="type"class="form-control" (change)="send($event)">
+            <option>Choose type</option>
+            <option>True</option>
+            <option>False</option>
+          </select>
+      
+      </div>
+    <div class="form-group">
+     
+      <div>Price</div>
+      <input type="text" class="form-control" formControlName="price" placeholder="Enter price"/>
+    
+    </div>
+    </div>
+  
+    <button class="button" (click)="submit()">submit</button>
+    
+    </div></div>
+  </form>

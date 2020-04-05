@@ -1,0 +1,48 @@
+<br>
+<br>
+<br>
+<style>
+  .button {
+    width:33rem;
+  background-color: #5d2e90; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
+<form [formGroup]="userFormGroup">
+   <div class="container">
+     <div class="h3">
+     <a style="color:black" class="text-center d-block mb-5 logo_text"> Register Here </a></div>
+  
+  <div class="col-md-6 offset-md-3">
+  <div class="form-group">
+    <div class="form-row">
+		<div class="col">
+ <label for="exampleInputEmail1">Name</label>
+    
+ <input type="text" class="form-control" formControlName="username" placeholder="User Name">
+ <div  *ngIf="userFormGroup.controls.password.invalid && userFormGroup.controls.username.touched" style="color:red">This field is required </div>
+</div>
+   
+		
+             
+			</div>
+   
+    
+  <div class="form-group">
+   
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"placeholder="Password">
+  <div  *ngIf="userFormGroup.controls.password.invalid && userFormGroup.controls.password.touched" style="color:red">This field is required </div>
+  </div>
+  </div>
+
+  <button class="button" (click)="SignUp()">SignUp</button>
+  
+  </div></div>
+</form>

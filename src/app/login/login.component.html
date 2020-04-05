@@ -1,0 +1,40 @@
+<br>
+<br>
+<br>
+<style>
+  .button {
+    width:33rem;
+  background-color: #5d2e90; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
+<form [formGroup]="userFormGroup">
+    <div class="container">
+     <div class="h3">
+     <a style="color:black" class="text-center d-block mb-5 logo_text"> Student Management</a></div>
+     
+  <div class="col-md-6 offset-md-3">
+  
+    <label for="exampleInputName1">Name </label>
+    <input type="name" class="form-control" formControlName="userName"id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name">
+   <div  *ngIf="userFormGroup.controls.password.invalid && userFormGroup.controls.userName.touched" style="color:red">This field is required </div>
+		<br>
+  <div class="form-group">
+   
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" formControlName="password"id="exampleInputPassword1" placeholder="Password">
+  <div  *ngIf="userFormGroup.controls.password.invalid && userFormGroup.controls.password.touched" style="color:red">This field is required </div>
+  </div>
+ 
+
+          <button class="button" (click)="signIn()" > Sign in</button>  
+            </div>
+
+        </div>
+   
